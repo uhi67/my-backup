@@ -1,0 +1,4 @@
+# daily database backup
+# Note: $.CRON_SCHEDULE will be replaced from the environment at container startup
+# m h dom mon dow user  command
+$CRON_SCHEDULE . /root/env.sh; /usr/local/bin/backup.sh >> /var/log/cron.log 2>&1
