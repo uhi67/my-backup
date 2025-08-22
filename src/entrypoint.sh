@@ -1,12 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
 # Terminate execution if any command fails
 set -e
 
-if [ "$APP_DB_PASSWORD" == "" ]; then
-  export APP_DB_PASSWORD=$(cat $APP_DB_PASSWORD_FILE)
+if [ "$APP_DB_PASSWORD" = "" ]; then
+  # shellcheck disable=SC2155
+  export APP_DB_PASSWORD="$(cat "$APP_DB_PASSWORD_FILE")"
 fi
-if [ "$APP_DB_PASSWORD" == "" ]; then
+if [ "$APP_DB_PASSWORD" = "" ]; then
   echo "Warning: no password is set in APP_DB_PASSWORD neither APP_DB_PASSWORD_FILE ($APP_DB_PASSWORD_FILE)"
 fi
 
