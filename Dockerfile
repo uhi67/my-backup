@@ -6,5 +6,6 @@ COPY src/crontab /etc/cron.d/mysql-backup
 RUN chmod +x /usr/local/bin/backup.sh
 RUN chmod +x /usr/local/bin/restore.sh
 COPY --chmod=+rx src/entrypoint.sh /entrypoint.sh
+STOPSIGNAL SIGKILL
 ENTRYPOINT ["/entrypoint.sh"]
 
