@@ -1,5 +1,4 @@
-FROM alpine:3.18
-RUN apt-get update && apt-get install -y cron
+FROM alpine:3.20
 RUN apk add --no-cache mysql-client
 COPY src/backup.sh /usr/local/bin/backup.sh
 COPY src/restore.sh /usr/local/bin/restore.sh

@@ -22,4 +22,4 @@ cat /etc/cron.d/mysql-backup
 
 echo "*** starting cron"
 crontab /etc/cron.d/mysql-backup
-exec cron -f
+exec crond -f
