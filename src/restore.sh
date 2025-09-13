@@ -36,7 +36,7 @@ else
       gzip -d -c "$APP_BACKUP_DIR"/"$1" | mysql -h "$APP_DB_HOST" -P "$APP_DB_PORT" -u "$APP_DB_USER" -p"$APP_DB_PASSWORD" "$APP_DB_NAME"
       ;;
     *.sql)
-      mysql -h "$APP_DB_HOST" -P "$APP_DB_PORT" -u "$APP_DB_USER" -p"$APP_DB_PASSWORD" "$APP_DB_NAME" < $1
+      mysql -h "$APP_DB_HOST" -P "$APP_DB_PORT" -u "$APP_DB_USER" -p"$APP_DB_PASSWORD" "$APP_DB_NAME" < "$APP_BACKUP_DIR"/$1
       ;;
     *)
       echo "Please specify a filename with .gz or .sql extension"
