@@ -14,7 +14,7 @@ Example usage
       - ./docker-data/backup:/var/backup
     environment:
       APP_DB_HOST: db
-      APP_DB_PORT: 5432
+      APP_DB_PORT: 3306
       APP_DB_USER: $APP_DB_USER
       APP_DB_PASSWORD_FILE: "/run/secrets/app_db_password"
       APP_DB_NAME: $APP_DB_NAME
