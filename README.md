@@ -13,6 +13,7 @@ Example usage
     volumes:
       - ./docker-data/backup:/var/backup
     environment:
+      TZ: "Europe/Budapest"
       APP_DB_HOST: db
       APP_DB_PORT: 3306
       APP_DB_USER: $APP_DB_USER
@@ -26,13 +27,20 @@ Example usage
       - app_db_password
 ```
 
+The scheduled backup operation is performed by the `cron` service. Manual backup can be done any time by running `backup.sh` in the container.
+The backup file is stored in the backup directory defined by the `APP_BACKUP_DIR` environment variable.
+The backup file name is composed of the database name and the current date and time. The backup file is compressed with gzip.
+Also, a log file is created in the backup directory with the same name as the backup file. In addition, the last log file is always copied to there as 'last.log'. 
+
 Restoring can be done manually by running the following command:
 
 `restore.sh <filename>`
 
 The backup file to restore must be in the backup directory defined by the `APP_BACKUP_DIR` environment variable.
+Without a filename, the command lists all files in the backup directory.
+Only .gz and .sql files are accepted.
 
-Development informations
--------------------------
+Development information
+-----------------------
 
 1. The image is automatically built on GitHub triggered by push operations.

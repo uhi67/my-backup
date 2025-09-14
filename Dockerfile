@@ -1,5 +1,6 @@
 FROM alpine:3.20
 RUN apk add --no-cache mysql-client
+RUN apk add --no-cache tzdata
 COPY src/backup.sh /usr/local/bin/backup.sh
 COPY src/restore.sh /usr/local/bin/restore.sh
 COPY src/crontab /etc/cron.d/mysql-backup
