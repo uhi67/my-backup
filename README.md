@@ -3,6 +3,8 @@ my-backup
 
 A side-car container to backup and restore MySQL database.
 
+Version: 1.0.0
+
 Example usage
 -------------
 
@@ -43,4 +45,4 @@ Only .gz and .sql files are accepted.
 Development information
 -----------------------
 
-1. The image is automatically built on GitHub triggered by push operations.
+1. The image is automatically built on GitHub triggered by push operations. The image is tagged with the git tag.
